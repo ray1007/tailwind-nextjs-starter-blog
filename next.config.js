@@ -71,6 +71,8 @@ module.exports = () => {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
     images: {
+      loader: 'custom',
+      loaderFile: './cloudinaryImageLoader.ts',
       remotePatterns: [
         {
           protocol: 'https',
