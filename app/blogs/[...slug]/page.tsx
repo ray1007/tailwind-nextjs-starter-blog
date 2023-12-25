@@ -46,7 +46,9 @@ export async function generateMetadata({
   }
   const ogImages = imageList.map((img) => {
     return {
-      url: img.startsWith("/static") ? siteMetadata.siteUrl + img: "https://res.cloudinary.com/strengthen-yourself/image/upload/" + img,
+      url: img.startsWith('/static')
+        ? siteMetadata.siteUrl + img
+        : 'https://res.cloudinary.com/strengthen-yourself/image/upload/' + img,
     }
   })
 
