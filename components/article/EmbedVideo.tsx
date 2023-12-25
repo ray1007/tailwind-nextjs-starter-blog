@@ -71,7 +71,7 @@ export default function EmbedVideo({ url, startSec, endSec, caption }) {
         </div>
       </div>
       <figcaption className="italic">
-        <button className="" href="" onClick={handleTimestampClick}>
+        <button className="text-primary-500" href="" onClick={handleTimestampClick}>
           {mm}:{ss}
         </button>
         {caption && <>：{caption}</>}
