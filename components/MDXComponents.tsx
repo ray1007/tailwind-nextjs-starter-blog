@@ -12,6 +12,8 @@ import DataTable from './article/DataTable'
 import EmbedVideo from './article/EmbedVideo'
 import HighlightTextSpan from './article/HighlightTextSpan'
 import InArticleImage from './article/InArticleImage'
+import MarketplaceSelect from './article/MarketplaceSelect'
+import ProductTable from './article/ProductTable'
 import SmallText from './article/SmallText'
 import TextBlock from './article/TextBlock'
 
@@ -39,6 +41,8 @@ export const components: MDXComponents = {
   HighlightTextSpan,
   InArticleImage,
   Link,
+  MarketplaceSelect,
+  ProductTable,
   SmallText,
   TextBlock,
 }
