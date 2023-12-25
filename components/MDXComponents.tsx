@@ -6,6 +6,7 @@ import Image from './Image'
 import Link from './Link'
 import TableWrapper from './TableWrapper'
 import Accordion from './article/Accordion'
+import AmazonProductList from './article/AmazonProductList'
 import BookProduct from './article/BookProduct'
 import DataTable from './article/DataTable'
 import EmbedVideo from './article/EmbedVideo'
@@ -31,6 +32,7 @@ export const components: MDXComponents = {
   table: TableWrapper,
   BlogNewsletterForm,
   Accordion,
+  AmazonProductList,
   BookProduct,
   DataTable,
   EmbedVideo,
