@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player'
 import { useInView } from 'react-intersection-observer'
 
 const isVimeo = (url) => {
-  if (typeof myVar === 'string') {
+  if (typeof url !== 'string') {
     return false
   }
   return url.includes('vimeo.com')
@@ -17,7 +17,7 @@ export default function EmbedVideo({ url, startSec, endSec, caption }) {
     triggerOnce: true,
   })
 
-  const playerEl = useRef(null)
+  const playerEl = useRef<ReactPlayer>(null)
   const [playing, setPlaying] = useState(false)
 
   const mm = ('0' + Math.floor(startSec / 60).toString()).slice(-2)
@@ -26,7 +26,7 @@ export default function EmbedVideo({ url, startSec, endSec, caption }) {
   const handleTimestampClick = (e) => {
     e.preventDefault()
     setPlaying(true)
-    playerEl.current.seekTo(startSec, 'seconds')
+    playerEl.current?.seekTo(startSec, 'seconds')
   }
 
   const handleProgress = ({ playedSeconds }) => {
@@ -56,7 +56,7 @@ export default function EmbedVideo({ url, startSec, endSec, caption }) {
               playing={playing}
               onReady={() => {
                 if (isVimeo(url)) {
-                  playerEl.current.seekTo(startSec, 'seconds')
+                  playerEl.current?.seekTo(startSec, 'seconds')
                 }
               }}
               onStart={() => {
@@ -71,7 +71,7 @@ export default function EmbedVideo({ url, startSec, endSec, caption }) {
         </div>
       </div>
       <figcaption className="italic">
-        <button className="text-primary-500" href="" onClick={handleTimestampClick}>
+        <button className="text-primary-500" onClick={handleTimestampClick}>
           {mm}:{ss}
         </button>
         {caption && <>：{caption}</>}
