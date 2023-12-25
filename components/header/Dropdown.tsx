@@ -20,7 +20,7 @@ export default function Dropdown({ title, link, sublist }: Props) {
   }
 
   return (
-    <div className="group relative z-50 mx-1 inline-block">
+    <div className="group relative z-50 mx-0.5 inline-block">
       <div className="inline-flex items-center rounded px-2 py-2 font-medium text-gray-700 focus:outline-none group-hover:bg-gray-200 dark:group-hover:bg-gray-600">
         <DropdownElement className="inline-flex items-center" href={link}>
           <span className="mr-1 text-gray-900 dark:text-gray-100">{title}</span>
