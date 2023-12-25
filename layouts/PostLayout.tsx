@@ -11,10 +11,6 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { formatDate } from '@/components/utils/formatDate'
 
-const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
-const discussUrl = (path) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
-
 interface LayoutProps {
   content: CoreContent<Blog>
   authorDetails: CoreContent<Authors>[]
@@ -24,7 +20,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+  const { filePath, path, slug, date, lastmod, title, tags } = content
   const basePath = path.split('/')[0]
 
   return (
@@ -34,21 +30,13 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(date)}</time>
-                  </dd>
-                </div>
-              </dl>
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
             </div>
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
-            <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+            <dl className="pb-6 pt-6 xl:col-start-4 xl:row-start-1 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
               <dt className="sr-only">Authors</dt>
               <dd>
                 <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
@@ -66,21 +54,17 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                            >
-                              {author.twitter.replace('https://twitter.com/', '@')}
-                            </Link>
-                          )}
-                        </dd>
                       </dl>
                     </li>
                   ))}
                 </ul>
+                <div className="pt-4 text-sm font-medium text-gray-500">
+                  發佈日期：
+                  <time dateTime={date}>{formatDate(date)}</time>
+                  <br />
+                  最後更新：
+                  <time dateTime={lastmod || date}>{formatDate(lastmod || date)}</time>
+                </div>
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
@@ -97,8 +81,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
                 {tags && (
-                  <div className="py-4 xl:py-8">
-                    <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <div className="py-4 xl:py-6">
+                    <h2 className="text-sm uppercase tracking-wide text-gray-500 dark:text-gray-400">
                       標籤
                     </h2>
                     <div className="flex flex-wrap">
@@ -113,9 +97,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <Link
                   href={`/${basePath}`}
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="Back to the blog"
+                  aria-label="返回文章列表"
                 >
-                  &larr; Back to the blog
+                  &larr; 返回文章列表
                 </Link>
               </div>
             </footer>
