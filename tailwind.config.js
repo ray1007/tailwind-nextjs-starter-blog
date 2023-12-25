@@ -12,6 +12,19 @@ module.exports = {
     './layouts/**/*.{js,ts,tsx}',
     './data/**/*.mdx',
   ],
+  safelist: [
+    'md:w-1/3',
+    'md:w-2/3',
+    'md:w-1/4',
+    'md:w-3/4',
+    'md:w-1/5',
+    'md:w-2/5',
+    'md:w-3/5',
+    'md:w-4/5',
+    'grid-cols-3', 'grid-cols-4', 'grid-cols-5',
+    'grid-cols-6','grid-cols-7','grid-cols-8',
+    'col-span-2', 
+  ],
   darkMode: 'class',
   theme: {
     extend: {

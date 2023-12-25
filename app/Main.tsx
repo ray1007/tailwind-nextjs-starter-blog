@@ -1,4 +1,3 @@
-import Image from '@/components/Image'
 import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import PostListEntry from '@/components/PostListEntry'
@@ -14,7 +13,7 @@ export default function Home({ posts }) {
           最好的防身，是不斷的自我強化。
         </div>
         <div className="my-4 rounded bg-gray-100 px-6 py-4 dark:bg-gray-800 md:hidden">
-          <Image src={siteMetadata.siteLogo} alt="" className="mx-auto w-1/4 rounded-full border" />
+          <img src={siteMetadata.siteLogo} alt="" className="mx-auto w-1/4 rounded-full border" />
           <div className="text-md my-2 text-center font-bold underline">{siteMetadata.author}</div>
           <div className="text-center text-sm">
             {siteMetadata.description}
@@ -50,7 +49,7 @@ export default function Home({ posts }) {
           <div className="hidden md:block">
             {/* author */}
             <div className="my-4 rounded bg-gray-100 px-6 py-4 dark:bg-gray-800 ">
-              <Image
+              <img
                 src={siteMetadata.siteLogo}
                 alt=""
                 className="mx-auto w-1/3 rounded-full border"
