@@ -8,7 +8,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://strengthenyourself.net',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/admin.png',
   socialBanner: '/static/images/twitter-card.jpg',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'strengthenyourself.blog@gmail.com',
