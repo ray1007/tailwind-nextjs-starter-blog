@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Link from '../Link'
-import headerNavLinks from '@/data/headerNavLinks'
+import navbarLinks from '@/data/navbarLinks'
+import MobileDropdown from './MobileDropdown'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -57,17 +58,16 @@ const MobileNav = () => {
           </button>
         </div>
         <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link) => (
-            <div key={link.title} className="px-12 py-4">
-              <Link
-                href={link.href}
-                className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                onClick={onToggleNav}
-              >
-                {link.title}
-              </Link>
-            </div>
+          {navbarLinks.map((navbarLink) => (
+            <MobileDropdown key={navbarLink.title} {...navbarLink} />
           ))}
+          <Link
+            href="/blogs"
+            className="block w-full px-4 py-4 text-lg font-medium text-gray-700 text-gray-700 dark:text-gray-100"
+            onClick={onToggleNav}
+          >
+            文章列表
+          </Link>
         </nav>
       </div>
     </>

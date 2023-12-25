@@ -1,7 +1,8 @@
 import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
+import navbarLinks from '@/data/navbarLinks'
 import Logo from '@/data/logo.svg'
 import Link from '../Link'
+import Dropdown from './Dropdown'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
@@ -26,17 +27,13 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center space-x-4 leading-5 lg:space-x-6">
-        {headerNavLinks
-          .filter((link) => link.href !== '/')
-          .map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              className="hidden font-medium text-gray-900 dark:text-gray-100 lg:block"
-            >
-              {link.title}
-            </Link>
-          ))}
+        <div className="hidden lg:block">
+          {navbarLinks &&
+            navbarLinks.map((navbarLink) => <Dropdown key={navbarLink.title} {...navbarLink} />)}
+          <Link className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4" href="/blogs">
+            文章列表
+          </Link>
+        </div>
         <SearchButton />
         <ThemeSwitch />
         <MobileNav />
