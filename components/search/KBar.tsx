@@ -4,7 +4,7 @@ import { KBarProvider } from 'kbar'
 import { useRouter } from 'next/navigation.js'
 import { KBarModal } from './KBarModal'
 import { CoreContent, MDXDocument } from 'pliny/utils/contentlayer'
-import { formatDate } from 'pliny/utils/formatDate'
+import { formatDate } from '@/components/utils/formatDate'
 
 export interface KBarSearchProps {
   searchDocumentsPath: string | false
@@ -53,7 +53,7 @@ export const KBarSearchProvider: FC<{
           name: post.title,
           keywords: `${post.title} ${post.summary} ${post.tags.join(' ')}`,
           section: '網誌文章',
-          subtitle: formatDate(post.date, 'en-US'),
+          subtitle: formatDate(post.date),
           perform: () => router.push('/' + post.path),
         })
       }
