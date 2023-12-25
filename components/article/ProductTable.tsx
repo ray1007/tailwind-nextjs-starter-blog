@@ -40,13 +40,7 @@ export default function Table({ products, features }) {
                 {product.imgUrl && (
                   <>
                     <a href={product.link} target="_blank" rel="noopener noreferrer sponsored">
-                      <img
-                        style={{ margin: 0 }}
-                        width={152}
-                        height={152}
-                        border="0"
-                        src={product.imgUrl}
-                      />
+                      <img style={{ margin: 0 }} width={152} height={152} src={product.imgUrl} />
                     </a>
                     <figcaption className="mt-2 text-center text-xs font-bold">
                       {product.name}
@@ -59,8 +53,8 @@ export default function Table({ products, features }) {
                     sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
                     className="mx-auto"
                     style={{ width: '120px', height: '240px' }}
-                    marginwidth="0"
-                    marginheight="0"
+                    marginWidth={0}
+                    marginHeight={0}
                     scrolling="no"
                     frameBorder="0"
                     src={product.amazonProductIframeSrc}

@@ -22,8 +22,8 @@ export default function Table({ products }) {
             title={`amazon product ${idx}`}
             sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
             style={{ width: '120px', height: '240px' }}
-            marginwidth="0"
-            marginheight="0"
+            marginWidth={0}
+            marginHeight={0}
             scrolling="no"
             frameBorder="0"
             src={productSrc}
